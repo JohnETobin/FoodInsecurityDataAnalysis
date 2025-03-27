@@ -1,0 +1,59 @@
+
+> cat("Regression of obesity on principal components:\n")
+Regression of obesity on principal components:
+
+> print(summary_obesity_pc)
+
+Call:
+lm(formula = pc_formula_obesity, data = urban_data_pca)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-19.5222  -2.8789  -0.0001   2.7777  17.9984 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 32.09490    0.17446 183.970  < 2e-16 ***
+PC1          0.83972    0.07603  11.044  < 2e-16 ***
+PC2          1.91805    0.10914  17.574  < 2e-16 ***
+PC3          1.26313    0.13407   9.421  < 2e-16 ***
+PC4          0.98198    0.17085   5.748 1.31e-08 ***
+PC5         -2.12900    0.19321 -11.019  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.822 on 758 degrees of freedom
+Multiple R-squared:  0.4707,	Adjusted R-squared:  0.4672 
+F-statistic: 134.8 on 5 and 758 DF,  p-value: < 2.2e-16
+
+
+> cat("\nRegression of diabetes on principal components:\n")
+
+Regression of diabetes on principal components:
+
+> print(summary_diabetes_pc)
+
+Call:
+lm(formula = pc_formula_diabetes, data = urban_data_pca)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-11.711  -1.668  -0.110   1.449  14.100 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  9.71401    0.11466  84.724  < 2e-16 ***
+PC1          0.40781    0.04997   8.161 1.38e-15 ***
+PC2          0.77261    0.07173  10.771  < 2e-16 ***
+PC3          0.31601    0.08811   3.586 0.000357 ***
+PC4          1.54340    0.11228  13.746  < 2e-16 ***
+PC5         -0.81511    0.12698  -6.419 2.42e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.169 on 758 degrees of freedom
+Multiple R-squared:  0.3596,	Adjusted R-squared:  0.3554 
+F-statistic: 85.13 on 5 and 758 DF,  p-value: < 2.2e-16
+
+
+> sink()

@@ -1,0 +1,244 @@
+
+> cat("--- OBESITY MODELS ---\n\n")
+--- OBESITY MODELS ---
+
+
+> cat("Model 1: Obesity ~ Food Desert Status\n")
+Model 1: Obesity ~ Food Desert Status
+
+> print(summary_model1_obesity)
+
+Call:
+lm(formula = obesity ~ food_desert, data = urban_data_pca)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.5074  -4.5444  -0.9444   3.6806  20.2556 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             30.9444     0.2446  126.51   <2e-16 ***
+food_desertFood Desert   6.4629     0.5797   11.15   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 6.129 on 762 degrees of freedom
+Multiple R-squared:  0.1402,	Adjusted R-squared:  0.1391 
+F-statistic: 124.3 on 1 and 762 DF,  p-value: < 2.2e-16
+
+
+> cat("\nModel 2: Obesity ~ Food Desert + Socioeconomic Factors\n")
+
+Model 2: Obesity ~ Food Desert + Socioeconomic Factors
+
+> print(summary_model2_obesity)
+
+Call:
+lm(formula = obesity ~ food_desert + PovertyRate + MedianFamilyIncome, 
+    data = urban_data_pca)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-18.1577  -2.0841  -0.1515   2.2983  11.2642 
+
+Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             3.487e+01  6.289e-01  55.445   <2e-16 ***
+food_desertFood Desert  1.039e+00  4.135e-01   2.511   0.0122 *  
+PovertyRate             1.791e-01  1.560e-02  11.484   <2e-16 ***
+MedianFamilyIncome     -7.898e-05  5.280e-06 -14.957   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.988 on 753 degrees of freedom
+  (7 observations deleted due to missingness)
+Multiple R-squared:  0.6297,	Adjusted R-squared:  0.6282 
+F-statistic: 426.8 on 3 and 753 DF,  p-value: < 2.2e-16
+
+
+> cat("\nModel 3: Obesity ~ PCA Components\n")
+
+Model 3: Obesity ~ PCA Components
+
+> print(summary_model3_obesity)
+
+Call:
+lm(formula = obesity ~ PC1 + PC2 + PC3 + PC4 + PC5, data = urban_data_pca)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-19.5222  -2.8789  -0.0001   2.7777  17.9984 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 32.09490    0.17446 183.970  < 2e-16 ***
+PC1          0.83972    0.07603  11.044  < 2e-16 ***
+PC2          1.91805    0.10914  17.574  < 2e-16 ***
+PC3          1.26313    0.13407   9.421  < 2e-16 ***
+PC4          0.98198    0.17085   5.748 1.31e-08 ***
+PC5         -2.12900    0.19321 -11.019  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 4.822 on 758 degrees of freedom
+Multiple R-squared:  0.4707,	Adjusted R-squared:  0.4672 
+F-statistic: 134.8 on 5 and 758 DF,  p-value: < 2.2e-16
+
+
+> cat("\nModel 4: Obesity ~ Food Desert + Socioeconomic Factors + PCA Components\n")
+
+Model 4: Obesity ~ Food Desert + Socioeconomic Factors + PCA Components
+
+> print(summary_model4_obesity)
+
+Call:
+lm(formula = obesity ~ food_desert + PovertyRate + MedianFamilyIncome + 
+    PC1 + PC2 + PC3 + PC4 + PC5, data = urban_data_pca)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-19.1309  -1.9172  -0.0894   2.1199  12.1169 
+
+Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             3.378e+01  6.918e-01  48.830  < 2e-16 ***
+food_desertFood Desert  4.518e+00  1.951e+00   2.316   0.0208 *  
+PovertyRate             1.740e-01  1.824e-02   9.538  < 2e-16 ***
+MedianFamilyIncome     -7.161e-05  5.773e-06 -12.404  < 2e-16 ***
+PC1                    -2.751e-01  2.627e-01  -1.047   0.2952    
+PC2                    -2.978e-01  3.042e-01  -0.979   0.3279    
+PC3                    -1.518e-01  1.578e-01  -0.962   0.3364    
+PC4                    -1.845e-01  1.624e-01  -1.136   0.2563    
+PC5                    -1.453e+00  3.048e-01  -4.769 2.23e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.888 on 748 degrees of freedom
+  (7 observations deleted due to missingness)
+Multiple R-squared:  0.6504,	Adjusted R-squared:  0.6467 
+F-statistic:   174 on 8 and 748 DF,  p-value: < 2.2e-16
+
+
+> cat("\n\n--- DIABETES MODELS ---\n\n")
+
+
+--- DIABETES MODELS ---
+
+
+> cat("Model 1: Diabetes ~ Food Desert Status\n")
+Model 1: Diabetes ~ Food Desert Status
+
+> print(summary_model1_diabetes)
+
+Call:
+lm(formula = diabetes ~ food_desert, data = urban_data_pca)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-10.5912  -2.2025  -0.6775   1.7475  14.2225 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              9.1775     0.1507  60.887   <2e-16 ***
+food_desertFood Desert   3.0136     0.3573   8.435   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.777 on 762 degrees of freedom
+Multiple R-squared:  0.08541,	Adjusted R-squared:  0.08421 
+F-statistic: 71.16 on 1 and 762 DF,  p-value: < 2.2e-16
+
+
+> cat("\nModel 2: Diabetes ~ Food Desert + Socioeconomic Factors\n")
+
+Model 2: Diabetes ~ Food Desert + Socioeconomic Factors
+
+> print(summary_model2_diabetes)
+
+Call:
+lm(formula = diabetes ~ food_desert + PovertyRate + MedianFamilyIncome, 
+    data = urban_data_pca)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.2278  -1.4517   0.0058   1.5332  13.2184 
+
+Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             1.004e+01  4.837e-01  20.765  < 2e-16 ***
+food_desertFood Desert  4.773e-01  3.181e-01   1.501    0.134    
+PovertyRate             1.060e-01  1.200e-02   8.839  < 2e-16 ***
+MedianFamilyIncome     -2.879e-05  4.061e-06  -7.089 3.12e-12 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.067 on 753 degrees of freedom
+  (7 observations deleted due to missingness)
+Multiple R-squared:  0.3806,	Adjusted R-squared:  0.3781 
+F-statistic: 154.2 on 3 and 753 DF,  p-value: < 2.2e-16
+
+
+> cat("\nModel 3: Diabetes ~ PCA Components\n")
+
+Model 3: Diabetes ~ PCA Components
+
+> print(summary_model3_diabetes)
+
+Call:
+lm(formula = diabetes ~ PC1 + PC2 + PC3 + PC4 + PC5, data = urban_data_pca)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-11.711  -1.668  -0.110   1.449  14.100 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  9.71401    0.11466  84.724  < 2e-16 ***
+PC1          0.40781    0.04997   8.161 1.38e-15 ***
+PC2          0.77261    0.07173  10.771  < 2e-16 ***
+PC3          0.31601    0.08811   3.586 0.000357 ***
+PC4          1.54340    0.11228  13.746  < 2e-16 ***
+PC5         -0.81511    0.12698  -6.419 2.42e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3.169 on 758 degrees of freedom
+Multiple R-squared:  0.3596,	Adjusted R-squared:  0.3554 
+F-statistic: 85.13 on 5 and 758 DF,  p-value: < 2.2e-16
+
+
+> cat("\nModel 4: Diabetes ~ Food Desert + Socioeconomic Factors + PCA Components\n")
+
+Model 4: Diabetes ~ Food Desert + Socioeconomic Factors + PCA Components
+
+> print(summary_model4_diabetes)
+
+Call:
+lm(formula = diabetes ~ food_desert + PovertyRate + MedianFamilyIncome + 
+    PC1 + PC2 + PC3 + PC4 + PC5, data = urban_data_pca)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-11.9806  -1.3474  -0.0792   1.3302  13.2144 
+
+Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             9.807e+00  5.077e-01  19.316  < 2e-16 ***
+food_desertFood Desert  1.779e+00  1.432e+00   1.242  0.21450    
+PovertyRate             9.987e-02  1.339e-02   7.460 2.40e-13 ***
+MedianFamilyIncome     -2.741e-05  4.237e-06  -6.470 1.77e-10 ***
+PC1                    -6.581e-02  1.928e-01  -0.341  0.73287    
+PC2                    -2.355e-01  2.232e-01  -1.055  0.29179    
+PC3                    -3.388e-01  1.158e-01  -2.924  0.00355 ** 
+PC4                     9.789e-01  1.192e-01   8.212 9.56e-16 ***
+PC5                    -4.605e-01  2.236e-01  -2.059  0.03985 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.853 on 748 degrees of freedom
+  (7 observations deleted due to missingness)
+Multiple R-squared:  0.4676,	Adjusted R-squared:  0.4619 
+F-statistic: 82.13 on 8 and 748 DF,  p-value: < 2.2e-16
+
+
+> sink()

@@ -1,0 +1,37 @@
+
+> cat("T-test for obesity by food desert status:\n")
+T-test for obesity by food desert status:
+
+> print(obesity_ttest)
+
+	Welch Two Sample t-test
+
+data:  obesity by food_desert
+t = -11.626, df = 207.12, p-value < 2.2e-16
+alternative hypothesis: true difference in means between group Not Food Desert and group Food Desert is not equal to 0
+95 percent confidence interval:
+ -7.558839 -5.367014
+sample estimates:
+mean in group Not Food Desert     mean in group Food Desert 
+                     30.94443                      37.40735 
+
+
+> cat("\nT-test for diabetes by food desert status:\n")
+
+T-test for diabetes by food desert status:
+
+> print(diabetes_ttest)
+
+	Welch Two Sample t-test
+
+data:  diabetes by food_desert
+t = -7.0717, df = 170.09, p-value = 3.799e-11
+alternative hypothesis: true difference in means between group Not Food Desert and group Food Desert is not equal to 0
+95 percent confidence interval:
+ -3.854860 -2.172397
+sample estimates:
+mean in group Not Food Desert     mean in group Food Desert 
+                     9.177548                     12.191176 
+
+
+> sink()

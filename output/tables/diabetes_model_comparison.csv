@@ -1,0 +1,5 @@
+"Model","R_squared","Adj_R_squared","F_statistic","p_value"
+"Model 1: Food Desert Only",0.085,0.084,71.16,"< 2.2e-16"
+"Model 2: + Socioeconomic",0.381,0.378,154.2,"< 2.2e-16"
+"Model 3: PCA Components",0.36,0.355,85.13,"< 2.2e-16"
+"Model 4: Full Model",0.468,0.462,82.13,"< 2.2e-16"
