@@ -2,6 +2,8 @@
 
 This project analyzes food insecurity, food environments, and health outcomes in North Carolina.
 
+Please note that the shapefiles were too large to track with GIT, so they must be downloaded separately if you wish to run this code
+
 ## Project Structure
 
 - `data/` - Data files
